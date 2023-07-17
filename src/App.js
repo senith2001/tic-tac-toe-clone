@@ -25,16 +25,17 @@ function claculateWinner(array) {
   }
   return false;
 }
+
+function addHistory(previousHistory, currentValueArray, count) {
+  previousHistory.push([count, currentValueArray]);
+  return previousHistory;
+}
+
 function Board() {
   const [valueArray, setValueArray] = useState(new Array(9).fill(null));
   const [count, setCount] = useState(0);
   const [history, setHistory] = useState([[count, valueArray]]);
   const [xIsNext, setXIsNext] = useState(true);
-
-  function addHistory(previousHistory, currentValueArray, count) {
-    previousHistory.push([count, currentValueArray]);
-    return previousHistory;
-  }
 
   function handleClick(i) {
     let newArray = valueArray.slice();
